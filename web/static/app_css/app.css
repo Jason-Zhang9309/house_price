@@ -1,0 +1,38 @@
+h1,h3,p,a,button{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.onepage{
+    margin-top: -20px;
+    height: 750px;
+}
+.onepage-bg{
+
+    height: 750px;
+    width: 100%;
+    position: absolute;
+    background-position: center center;
+    background-size: cover;
+}
+#onepagebg {
+    background-image: url("/static/imgs/8f222fdf19c1c89c788edd0fca2f5b8e.jpg");
+}
+.headh1content{
+    margin-top: 120px;
+    margin-left: 120px;
+    line-height: 75px;
+}
+.form-group{
+    margin-left: 120px;
+}
+.title-text{
+    margin-left: 50px;
+
+}
+
+.headfontsize h1{
+    font-size: 50pt;
+    color: #000000;
+}
+.headfontsize p {
+    color: #ffffff;
+}

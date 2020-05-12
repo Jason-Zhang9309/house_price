@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>去找房-首页</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/app_css/app.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand active" href="#">去找房</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav" id="myNav">
+                <li><a href="second_hand">二手房</a></li>
+                <li><a href="rent_house">租房</a></li>
+                <li><a href="sold_house">查成交</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="">注册</a></li>
+                <li><a href="">登录</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">我的<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a>个人资料</a></li>
+                        <li><a>我的关注</a></li>
+                        <li><a>最近浏览</a></li>
+                        <li><a>退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<div class="onepage">
+    <div class="onepage-bg" id="onepagebg"></div>
+    <div class="container">
+        <div class="row">
+            <div class="title-text">
+                <div class="col-md-12 headfontsize">
+                    <form class="form-inline">
+                        <h1 class="headh1content">你想住在哪？</h1>
+                        <div class="form-group form-group-lg">
+                            
+                            <input type="text" class="form-control" placeholder="小区/商圈/地铁站/...">
+                            <button type="submit" class="btn btn-success btn-lg">搜索 <span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/bootstrap/js/jquery.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.js"></script>
+<script>
+    $("#myNav a").click(function (e) {
+        e.preventDefault();
+        $(this).tab("show");
+        window.location.href = 'http://192.168.29.131:8000/house_prices/' + $(this).attr('href');
+    })
+    $(".navbar-header a").click(function (e) {
+        e.preventDefault();
+        $(this).tab("show");
+        window.location.href = 'http://192.168.29.131:8000/house_prices/' + $(this).attr('href');
+    })
+    $("#mytab a").click(function (e) {
+        e.preventDefault();
+        $(this).tab("show");
+    })
+</script>
+</body>
+</html>

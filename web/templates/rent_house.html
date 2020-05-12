@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>去找房-租房</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/app_css/app.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand active" href="#">去找房</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav" id="myNav">
+                <li><a href="second_hand">二手房</a></li>
+                <li class="active"><a href="rent_house">租房</a></li>
+                <li><a href="sold_house">查成交</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="">注册</a></li>
+                <li><a href="">登录</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">我的<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a>个人资料</a></li>
+                        <li><a>我的关注</a></li>
+                        <li><a>最近浏览</a></li>
+                        <li><a>退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<div class="container">
+    <table class="table table-bordered table-bordered table-striped table-hover">
+        <caption>租房</caption>
+        <thead>
+        <tr class="success">
+            <th>位置</th>
+            <th>价格</th>
+            <th>面积</th>
+            <th>户型</th>
+            <th>朝向</th>
+            <th>租赁方式</th>
+            <th>房源链接</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for house in rent_houses %}
+        <tr>
+            <td>{{house.location}}</td>
+            <td>{{house.price}}</td>
+            <td>{{house.space}}</td>
+            <td>{{house.house_type}}</td>
+            <td>{{house.direction}}</td>
+            <td>{{house.rent_type}}</td>
+            <td>{{house.source_link}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<nav>
+    <ul class="pager">
+        <li><a href="#">上一页</a></li>
+        <li><a href="#">下一页</a></li>
+    </ul>
+</nav>
+
+<script src="/static/bootstrap/js/jquery.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.js"></script>
+<script>
+    $("#myNav a").click(function (e) {
+        e.preventDefault();
+        $(this).tab("show");
+        window.location.href = 'http://192.168.29.131:8000/house_prices/' + $(this).attr('href');
+    })
+    $(".navbar-header a").click(function (e) {
+        e.preventDefault();
+        $(this).tab("show");
+        window.location.href = 'http://192.168.29.131:8000/house_prices/' + $(this).attr('href');
+    })
+</script>
+</body>
+</html>

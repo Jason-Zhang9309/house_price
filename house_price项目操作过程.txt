@@ -1,0 +1,159 @@
+house_price项目操作过程
+
+cd house_price/
+
+mkdir web
+cd web
+
+创建虚拟环境
+python3 -m venv hp_venv
+source hp_venv/bin/activate
+pip3 install django
+
+创建项目
+django-admin.py startproject house_price .
+python3 manage.py runserver
+
+
+
+修改配置文件
+vim house_price/settings.py
+LANGUAGE_CODE = 'zh-hans'
+TIME_ZONE = 'Asia/Chongqing'
+
+创建app
+python3 manage.py startapp house_prices
+
+vim house_prices/views.py
+  2 from django.http import HttpResponse
+  3 
+  4 # Create your views here.
+  5 
+  6 def index(request):
+  7     return HttpResponse('<h1>hello django</h1>')
+
+touch house_prices/urls.py
+vim house_prices/urls.py
+  1 from django.urls import path
+  2 from house_prices import views
+  3 
+  4 urlpatterns = [
+  5         path('', views.index, name='index')
+  6         ]
+
+vi house_price/urls.py
+ 19 urlpatterns = [
+ 20     path('admin/', admin.site.urls),
+ 21     path('house_prices/', include('house_prices.urls')),
+ 22 ]
+
+
+
+vi house_price/settings.py
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+ 33 INSTALLED_APPS = [
+ 34     'django.contrib.admin',
+ 35     'django.contrib.auth',
+ 36     'django.contrib.contenttypes',
+ 37     'django.contrib.sessions',
+ 38     'django.contrib.messages',
+ 39     'django.contrib.staticfiles',
+ 40     'house_prices',
+ 41 ]
+
+
+ 77 DATABASES = {
+ 78     'default': {
+ 79         #'ENGINE': 'django.db.backends.sqlite3',
+ 80         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+ 81         'ENGINE': 'django.db.backends.mysql',
+ 82         'NAME': 'house_price',
+ 83         'HOST': '127.0.0.1',
+ 84         'PORT': 3306,
+ 85         'USER':'root',
+ 86         'PASSWORD':'123456aB'
+ 87     }
+ 88 }
+
+安装pymsql
+pip3 install pymysql
+vi house_price/__init__.py
+  1 import pymysql
+  2 pymysql.install_as_MySQLdb()
+
+创建数据库
+mysql -u root -p
+mysql> create database house_price default charset utf8;
+mysql -u root -p
+
+(hp_venv) python@ubuntu:/usr/zhangjishu/house_price/web$ mkdir templates
+(hp_venv) python@ubuntu:/usr/zhangjishu/house_price/web$ touch templates/index.html
+
+django.core.exceptions.ImproperlyConfigured: mysqlclient 1.3.13 or newer is required; you have 0.9.3.
+解决办法：
+
+找到Python安装路劲下的/usr/zhangjishu/house_price/web/hp_venv/lib/python3.5/site-packages/django/db/backends/mysql/base.py文件
+
+将文件中的如下代码注释
+
+if version < (1, 3, 3):
+    raise ImproperlyConfigured("mysqlclient 1.3.3 or newer is required; you have %s" % Database.__version__)
+
+此时仍会会报错，报错信息如下：
+
+AttributeError: ‘str’ object has no attribute ‘decode’
+
+#找到operations.py文件（146行），将decode改为encode
+#linux vim 查找快捷键：？decode
+if query is not None:
+    query = query.decode(errors='replace')
+return query
+#改为
+if query is not None:
+    query = query.encode(errors='replace')
+return query
+
+
+迁移
+python manage.py migrate
+
+创建models
+
+
+再次迁移
+python manage.py makemigrations house_prices
+python manage.py migrate
+
+创建超级管理员账号
+python manage.py createsuperuser
+
+注册模型类。
+
+(venv)$ vim house_prices/admin.py
+from django.contrib import admin
+
+from house_prices.models import House
+
+class HouseAdmin(admin.ModelAdmin):
+
+    list_display = ('guapaijia','chengjiaozhouqi','tiaojia','daikan','guanzhu','liulan','fangwuhuxing','suozailouceng','jianzhumianji','huxingjiegou','taoneimianji','jianzhuleixing','fangwuchaoxiang','jianchengniandai','zhuangxiuqingkuang','jianzhujiegou','gongnuanfangshi','tihubili','chanquannianxian','peibeidianti','lianjiabianhao','jiaoyiquanshu','guapaishijian','fangwuyongtu','fangwunianxian','fangquansuoshu','chengjiaojia','danjia','xiaoquweizhi','chengjaoriqi')
+    ordering = ('lianjiabianhao', )
+
+admin.site.register(House, HouseAdmin)
+

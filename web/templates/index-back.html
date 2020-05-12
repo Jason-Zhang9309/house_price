@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>房价--首页</title>
+
+	<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+	
+	</style>
+</head>
+<!--
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="#" class="navbar-brand">首页</a>
+			</div>
+			<div id="navbar" class="collapes navbar-collapes">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">HOME</a></li>
+					<li><a href="#">ABOUT</a></li>
+					<li><a href="#">CONTACT</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+<div class="container">
+	<div class="starter">
+		<h1>hhaha</h1>
+		<p class="lead">ejfiodjf</p>
+	</div>
+	
+	
+</div>
+</body>
+-->
+<body>
+	<div class="container">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default">left</button>
+			<button type="button" class="btn btn-default">middle</button>
+			<button type="button" class="btn btn-default">right</button>
+		</div>
+	</div>
+
+	<div class="button-toolbar">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-sort-by-attributes"></span></button>
+			<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-align-center"></span></button>
+			<button type="button" class="btn btn-default"><span></span></button>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-default"><span></span></button>
+			<button type="button" class="btn btn-default"><span></span></button>
+			<button type="button" class="btn btn-default"><span></span></button>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-default"><span></span></button>
+			<button type="button" class="btn btn-default"><span></span></button>
+			<button type="button" class="btn btn-default"><span></span></button>
+		</div>
+	</div>
+
+	<div class="btn-group">
+		<button ></button>
+	</div>
+	
+	<!-- <script src="/static/bootstrap/js/jquery.min.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script> -->
+</body>
+</html>
+
+<!--
+	<h1>
+		房源信息
+	</h1>
+	<hr>
+	<table border="1" width="2400">
+		<tr>
+			<th width="50">链家编号</th>
+			<th width="50">挂牌价</th>
+			<th width="50">成交价</th>
+			<th width="40">调价</th>
+			<th width="50">单价</th>
+			<th width="110">挂牌时间</th>
+			<th width="110">成交日期</th>
+			<th width="70">成交周期</th>
+			<th width="100">房屋户型</th>
+			<th width="110">所在楼层</th>
+			<th width="70">建筑面积</th>
+			<th width="70">户型结构</th>
+			<th width="70">套内面积</th>
+			<th width="70">建筑类型</th>
+			<th width="70">房屋朝向</th>
+			<th width="70">建成年代</th>
+			<th width="70">装修情况</th>
+			<th width="70">建筑结构</th>
+			<th width="70">供暖方式</th>
+			<th width="80">梯户比例</th>
+			<th width="70">产权年限</th>
+			<th width="70">配备电梯</th>
+			<th width="70">交易权属</th>
+			<th width="70">房屋用途</th>
+			<th width="70">房屋年限</th>
+			<th width="70">房权所属</th>
+			<th width="70">小区位置</th>
+			<th width="70">带看</th>
+			<th width="70">关注</th>
+			<th width="70">浏览</th>
+			
+		</tr>
+		
+		<form action="{% url 'choose' %}" method="get" name="choose">
+			{% csrf_token %}
+		<tr>
+			<td>
+				<select name="lianjiabianhao">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="guapaijia">
+					{% for name in guapaijia_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="chengjiaojia">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="tiaojia">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="danjia">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="guapaishijian">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="chengjaoriqi">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="chengjiaozhouqi">
+					{% for name in chengjiaozhouqi_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			
+			
+			
+			
+			<td>
+				<select name="fangwuhuxing">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="suozailouceng">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="jianzhumianji">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td><select name="huxingjiegou">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="taoneimianji">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="jianzhuleixing">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="fangwuchaoxiang">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td><select name="jianchengniandai">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="zhuangxiuqingkuang">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="jianzhujiegou">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="gongnuanfangshi">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="tihubili">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td><select name="chanquannianxian">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="peibeidianti">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			
+			<td>
+				<select name="jiaoyiquanshu">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+
+			<td>
+				<select name="fangwuyongtu">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="fangwunianxian">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="fangquansuoshu">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+
+			<td>
+				<select name="xiaoquweizhi">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			
+			<td>
+				<select name="daikan">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<select name="guanzhu">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td><select name="liulan">
+					{% for name in option_list %}
+					<option value="{{name}}">{{name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<input type="submit" value="搜索">
+			</td>
+		</tr>
+			
+		</form>
+			
+		{% for house in houses_list %}
+		<tr>
+			<td>{{house.lianjiabianhao}}</td>
+			<td>{{house.guapaijia}}</td>
+			<td>{{house.chengjiaojia}}</td>
+			<td>{{house.tiaojia}}</td>
+			<td>{{house.danjia}}</td>
+			<td>{{house.guapaishijian}}</td>
+			<td>{{house.chengjaoriqi}}</td>
+			<td>{{house.chengjiaozhouqi}}</td>
+			<td>{{house.fangwuhuxing}}</td>
+			<td>{{house.suozailouceng}}</td>
+			<td>{{house.jianzhumianji}}</td>
+			<td>{{house.huxingjiegou}}</td>
+			<td>{{house.taoneimianji}}</td>
+			<td>{{house.jianzhuleixing}}</td>
+			<td>{{house.fangwuchaoxiang}}</td>
+			<td>{{house.jianchengniandai}}</td>
+			<td>{{house.zhuangxiuqingkuang}}</td>
+			<td>{{house.jianzhujiegou}}</td>
+			<td>{{house.gongnuanfangshi}}</td>
+			<td>{{house.tihubili}}</td>
+			<td>{{house.chanquannianxian}}</td>
+			<td>{{house.peibeidianti}}</td>
+			<td>{{house.jiaoyiquanshu}}</td>
+			<td>{{house.fangwuyongtu}}</td>
+			<td>{{house.fangwunianxian}}</td>
+			<td>{{house.fangquansuoshu}}</td>			
+			<td>{{house.xiaoquweizhi}}</td>
+			<td>{{house.daikan}}</td>
+			<td>{{house.guanzhu}}</td>
+			<td>{{house.liulan}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+-->
